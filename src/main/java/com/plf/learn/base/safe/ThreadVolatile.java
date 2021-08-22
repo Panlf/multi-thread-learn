@@ -1,4 +1,4 @@
-package com.plf.learn.base;
+package com.plf.learn.base.safe;
 
 class ThreadVolatileFlag extends Thread {
     public volatile boolean flag = true;
@@ -17,6 +17,10 @@ class ThreadVolatileFlag extends Thread {
     }
 }
 
+/**
+ * @author panlf
+ * @Date 2021/8/21
+ */
 public class ThreadVolatile {
     public static void main(String[] args) throws InterruptedException {
         ThreadVolatileFlag threadVolatileFlag = new ThreadVolatileFlag();

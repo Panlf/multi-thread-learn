@@ -17,10 +17,12 @@ class SaleTicketThread implements Runnable {
             trainCount--;
         }
     }
-
-
 }
 
+/**
+ * @author panlf
+ * @Date 2021/8/21
+ */
 public class SaleTicket {
     public static void main(String[] args) {
         SaleTicketThread thread1 = new SaleTicketThread();

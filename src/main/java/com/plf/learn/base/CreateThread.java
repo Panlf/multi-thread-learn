@@ -23,6 +23,10 @@ class CreateImplementRunnable implements Runnable {
     }
 }
 
+/**
+ * @author panlf
+ * @Date 2021/8/21
+ */
 public class CreateThread {
     public static void main(String[] args) {
         CreateExtendsThread thread = new CreateExtendsThread();
