@@ -1,4 +1,4 @@
-package com.plf.learn.concurrent;
+package com.plf.learn.concurrent.semaphore;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;

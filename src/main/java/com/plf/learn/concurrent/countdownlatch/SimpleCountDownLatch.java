@@ -1,4 +1,4 @@
-package com.plf.learn.concurrent;
+package com.plf.learn.concurrent.countdownlatch;
 
 import java.util.concurrent.CountDownLatch;
 

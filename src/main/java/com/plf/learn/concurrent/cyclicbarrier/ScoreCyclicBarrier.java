@@ -1,4 +1,4 @@
-package com.plf.learn.concurrent;
+package com.plf.learn.concurrent.cyclicbarrier;
 
 import java.util.Set;
 import java.util.concurrent.*;

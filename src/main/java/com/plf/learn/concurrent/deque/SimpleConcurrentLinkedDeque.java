@@ -1,4 +1,4 @@
-package com.plf.learn.concurrent;
+package com.plf.learn.concurrent.deque;
 
 import java.util.concurrent.ConcurrentLinkedDeque;
 

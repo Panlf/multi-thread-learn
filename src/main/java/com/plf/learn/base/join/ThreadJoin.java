@@ -1,4 +1,4 @@
-package com.plf.learn.base;
+package com.plf.learn.base.join;
 
 /**
  * @author panlf
