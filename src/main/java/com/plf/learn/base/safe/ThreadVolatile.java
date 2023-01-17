@@ -6,7 +6,7 @@ class ThreadVolatileFlag extends Thread {
     @Override
     public void run() {
         System.out.println("run start ... ");
-        while (flag){
+        while (flag) {
 
         }
         System.out.println("run end ... ");
