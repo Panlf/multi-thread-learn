@@ -15,7 +15,7 @@ public class CompletableFutureTest {
 
     public static void main(String[] args) {
         CompletableFutureTest test = new CompletableFutureTest();
-        test.test11();
+        test.test12();
     }
 
     //创建一个完成的CompletableFuture
@@ -148,5 +148,28 @@ public class CompletableFutureTest {
                 });
         allOf.join();
         System.out.println(result.toString());
+    }
+
+    /**
+     * 串行方法
+     */
+    public void test12(){
+        System.out.println("主线程start...");
+        CompletableFuture.runAsync(()->{
+            System.out.println("任务1 --- "+Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).thenRunAsync(()->{
+            System.out.println("任务2 --- "+Thread.currentThread().getName());
+        });
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("主线程end...");
     }
 }
