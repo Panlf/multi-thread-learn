@@ -19,7 +19,7 @@ public class NamedThreadFactory implements ThreadFactory {
         SecurityManager s = System.getSecurityManager();
         threadGroup = (s != null) ? s.getThreadGroup() :
                 Thread.currentThread().getThreadGroup();
-        if (null==name || "".equals(name.trim())){
+        if (null==name || name.trim().isEmpty()){
             name = "pool";
         }
         AtomicInteger poolNumber = new AtomicInteger(1);
@@ -33,10 +33,12 @@ public class NamedThreadFactory implements ThreadFactory {
         Thread t = new Thread(threadGroup, r,
                 namePrefix + threadNumber.getAndIncrement(),
                 0);
-        if (t.isDaemon())
+        if (t.isDaemon()) {
             t.setDaemon(false);
-        if (t.getPriority() != Thread.NORM_PRIORITY)
+        }
+        if (t.getPriority() != Thread.NORM_PRIORITY) {
             t.setPriority(Thread.NORM_PRIORITY);
+        }
         return t;
     }
 }

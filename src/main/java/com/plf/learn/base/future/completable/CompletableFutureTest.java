@@ -3,7 +3,6 @@ package com.plf.learn.base.future.completable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -92,8 +91,7 @@ public class CompletableFutureTest {
     public void test07(){
         CompletableFuture cf = CompletableFuture
                 .completedFuture("message")
-                .thenApplyAsync(String::toUpperCase,
-                CompletableFuture.delayedExecutor(1, TimeUnit.SECONDS));
+                .thenApplyAsync(String::toUpperCase);
         CompletableFuture cf2 = cf.exceptionally(throwable -> "canceled message");
         cf.completeExceptionally(new RuntimeException("completed exceptionally"));
         System.out.println(cf.cancel(true));
@@ -116,7 +114,7 @@ public class CompletableFutureTest {
     //组合
     public void test09(){
         String original = "Message";
-        CompletableFuture cf = CompletableFuture.completedFuture(original).thenApply(s -> s.toUpperCase())
+        CompletableFuture<String> cf = CompletableFuture.completedFuture(original).thenApply(s -> s.toUpperCase())
                 .thenCompose(upper -> CompletableFuture.completedFuture(original).thenApply(s -> s.toLowerCase())
                         .thenApply(s -> upper + s));
         System.out.println(cf.join());
